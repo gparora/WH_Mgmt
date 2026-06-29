@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const dispatchRoutes = require('./routes/dispatchRoute');
 require('dotenv').config();
 
 const tenantMiddleware = require('./middleware/tenant');
@@ -18,7 +19,9 @@ app.get('/health', (req, res) => {
 });
 
 
+
 app.use('/api/v1', tenantMiddleware);
+app.use('/api/v1/dispatch', dispatchRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -31,6 +34,6 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log(`🚀 WMS SaaS API running on port ${PORT}`);
-  console.log(`📡 Expecting PostgreSQL and Redis connections...`);
+  console.log(`WMS SaaS API running on port ${PORT}`);
+  console.log(`Expecting PostgreSQL and Redis connections...`);
 });

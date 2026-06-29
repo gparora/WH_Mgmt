@@ -1,0 +1,41 @@
+{
+  "name": "wh_mgmt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gparora/WH_Mgmt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gparora/WH_Mgmt/issues"
+  },
+  "homepage": "https://github.com/gparora/WH_Mgmt#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "bullmq": "^5.79.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "ioredis": "^5.11.1",
+    "jsonwebtoken": "^9.0.3",
+    "knex": "^3.3.0",
+    "multer": "^2.2.0",
+    "pdfkit": "^0.19.1",
+    "pg": "^8.22.0",
+    "ulid": "^3.0.2",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
