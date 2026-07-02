@@ -1,8 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const mrpTemplateRoutes = require('./routes/mrpTemplateRoute');
 const dispatchRoutes = require('./routes/dispatchRoute');
 require('dotenv').config();
+require('./workers/pdfGenerationWorker');
 
 const tenantMiddleware = require('./middleware/tenant');
 
@@ -21,7 +23,9 @@ app.get('/health', (req, res) => {
 
 
 app.use('/api/v1', tenantMiddleware);
+app.use('/api/v1/mrp-templates', mrpTemplateRoutes);
 app.use('/api/v1/dispatch', dispatchRoutes);
+
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
